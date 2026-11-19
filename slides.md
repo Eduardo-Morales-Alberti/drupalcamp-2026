@@ -69,7 +69,7 @@ Sitio real, anonimizado. Dato exacto: algo más del 4 % de las páginas (cada tr
 </div>
 
 <!--
-Unas 50 personas editaron en el último año, con cerca de 15.000 revisiones. Una docena de tipos de contenido.
+Decenas de personas editan cada año.
 -->
 
 ---
@@ -156,9 +156,6 @@ layout: speaker
 
 <img src="/img/speaker.jpeg" alt="Eduardo Morales">
 
-<!--
-No nombrar clientes; evita que se asocie el sitio anonimizado.
--->
 
 ---
 layout: cols-3
