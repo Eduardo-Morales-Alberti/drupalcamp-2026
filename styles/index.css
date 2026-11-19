@@ -1,0 +1,365 @@
+/*
+ * DrupalCamp Spain 2026 (Madrid) speaker template for Slidev.
+ * Style guide: ../STYLE.md
+ *
+ * Tokens live on :root. Layouts and elements consume them; never hard-code
+ * a colour or a size in a layout or in slides.md.
+ *
+ * Sizes: the Google Slides template is 960 pt wide and the Slidev canvas is
+ * 1280 px, so 1 pt = 1.333 px. The pt value from the template is noted next
+ * to each size token.
+ */
+:root {
+  /* Palette (template slide 26, "Recursos para la presentación") */
+  --dc-navy: #12285f;
+  --dc-blue: #016aa9;       /* Azul Drupal */
+  --dc-cyan: #009cde;
+  --dc-yellow: #ffc422;
+  --dc-ink: #1a2238;        /* Tinta */
+  --dc-sky: #ccedf9;        /* Azul cielo */
+  --dc-mist: #edf9fd;       /* Azul bruma */
+  --dc-dusk: #eeeaf6;       /* Violeta atardecer */
+  --dc-dawn: #ffeaaf;       /* Violeta amanecer */
+  --dc-white: #ffffff;
+
+  --dc-font: 'Inter', system-ui, sans-serif;
+
+  /* Type scale */
+  --dc-size-display: 160px;     /* big numbers, no template equivalent */
+  --dc-size-section-num: 80px;  /* 60 pt */
+  --dc-size-section: 59px;      /* 44 pt */
+  --dc-size-cover: 54px;        /* ~40 pt */
+  --dc-size-header-num: 53px;   /* 40 pt */
+  --dc-size-statement: 43px;    /* 32 pt */
+  --dc-size-header: 37px;       /* 28 pt */
+  --dc-size-card-title: 29px;   /* 22 pt */
+  --dc-size-subhead: 27px;      /* 20 pt */
+  --dc-size-body: 24px;         /* 18 pt */
+  --dc-size-small: 21px;        /* 16 pt */
+  --dc-size-eyebrow: 16px;      /* 12 pt, also the minimum size */
+
+  /* Spacing */
+  --dc-pad-x: 58px;
+  --dc-pad-top: 44px;
+  --dc-pad-bottom: 72px;
+  --dc-radius: 14px;
+  --dc-gap: 32px;
+
+  /* Line length: about 70 characters */
+  --dc-measure: 70ch;
+}
+
+/* Base slide */
+.slidev-layout.dc {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: var(--dc-pad-top) var(--dc-pad-x) var(--dc-pad-bottom);
+  background: var(--dc-mist) url('/img/bg-mist.jpg') center / cover no-repeat;
+  color: var(--dc-ink);
+  font-family: var(--dc-font);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+
+.dc h1,
+.dc h2,
+.dc h3 {
+  font-family: var(--dc-font);
+  font-weight: 700;
+  color: var(--dc-navy);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.dc h1 {
+  font-size: var(--dc-size-header);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+/* Subheads (column titles, "Antes" / "Después" in the template) */
+.dc h3 {
+  font-size: var(--dc-size-subhead);
+  line-height: 1.2;
+  color: var(--dc-blue);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* An h3 right before the h1 is an eyebrow ("CASO PRÁCTICO" in the template) */
+.dc h3:has(+ h1) {
+  font-size: var(--dc-size-eyebrow);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.dc p,
+.dc li {
+  font-size: var(--dc-size-body);
+  line-height: 1.45;
+  color: var(--dc-ink);
+}
+
+.dc p {
+  margin: 0 0 14px;
+  max-width: var(--dc-measure);
+}
+
+.dc strong,
+.dc b {
+  font-weight: 700;
+  color: var(--dc-navy);
+}
+
+.dc a {
+  color: var(--dc-blue);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.dc ul,
+.dc ol {
+  margin: 0;
+  padding: 0;
+}
+
+.dc ul {
+  list-style: none;
+}
+
+.dc ul + p,
+.dc ol + p {
+  margin-top: 18px;
+}
+
+.dc li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 12px;
+  max-width: var(--dc-measure);
+}
+
+.dc ul > li::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0.62em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dc-navy);
+}
+
+.dc ol {
+  padding-left: 1.4em;
+}
+
+.dc ol > li {
+  padding-left: 8px;
+}
+
+.dc code {
+  overflow-wrap: anywhere;
+  font-size: 0.9em;
+  background: var(--dc-sky);
+  color: var(--dc-navy);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+/* Utilities */
+.dc .lead {
+  font-size: var(--dc-size-statement);
+  line-height: 1.25;
+  font-weight: 700;
+  color: var(--dc-navy);
+}
+
+.dc .highlight {
+  background: var(--dc-dawn);
+  padding: 2px 10px;
+  border-radius: 6px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.dc .eyebrow {
+  font-size: var(--dc-size-eyebrow);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--dc-blue);
+}
+
+/* Source of a figure, under the data */
+.dc p.source {
+  font-size: var(--dc-size-eyebrow);
+  font-weight: 700;
+  color: var(--dc-blue);
+  margin-top: 6px;
+}
+
+/* Screenshot inside a content slide */
+.dc img.screenshot {
+  display: block;
+  max-width: 100%;
+  max-height: 400px;
+  margin-top: 12px;
+  border-radius: var(--dc-radius);
+  box-shadow: 0 8px 24px rgba(18, 40, 95, 0.12);
+}
+
+/* Caption under a screenshot: what it shows and where it comes from */
+.dc p.caption {
+  font-size: var(--dc-size-eyebrow);
+  line-height: 1.35;
+  margin: 10px 0 0;
+  max-width: none;
+  color: var(--dc-ink);
+  opacity: 0.8;
+}
+
+.dc p.caption code {
+  font-size: 0.95em;
+  padding: 1px 4px;
+}
+
+/* Pill tag ("FRONTEND", "KEYNOTE" in the template) */
+.dc .pill {
+  display: inline-block;
+  padding: 6px 20px;
+  border-radius: 999px;
+  background: var(--dc-dawn);
+  color: var(--dc-navy);
+  font-size: var(--dc-size-eyebrow);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Stat cards (slide "Un sitio Drupal grande") */
+.dc .stats {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.dc .stat {
+  background: var(--dc-white);
+  border-radius: var(--dc-radius);
+  padding: 28px 22px;
+}
+
+.dc .stat b {
+  display: block;
+  font-size: var(--dc-size-header-num);
+  line-height: 1;
+  color: var(--dc-blue);
+  margin-bottom: 10px;
+}
+
+.dc .stat span {
+  font-size: var(--dc-size-small);
+  color: var(--dc-ink);
+}
+
+/* Horizontal bars (slide "Los tres problemas más extendidos") */
+.dc .bars {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.dc .bar {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.dc .bar-value {
+  font-size: var(--dc-size-header);
+  font-weight: 700;
+  color: var(--dc-navy);
+  text-align: right;
+}
+
+.dc .bar-track {
+  position: relative;
+  height: 64px;
+  background: var(--dc-sky);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.dc .bar-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--dc-blue);
+}
+
+.dc .bar-label {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: var(--dc-size-small);
+  font-weight: 700;
+  color: var(--dc-white);
+  white-space: nowrap;
+}
+
+.dc .bar-label.dark {
+  color: var(--dc-navy);
+}
+
+/* Pyramid (slide "configuran, diagnostican, corrigen") */
+.dc .pyramid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.dc .pyramid div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88px;
+  border-radius: 10px;
+  font-size: var(--dc-size-subhead);
+  font-weight: 700;
+  color: var(--dc-white);
+}
+
+.dc .pyramid .p1 { width: 36%; background: var(--dc-yellow); color: var(--dc-navy); }
+.dc .pyramid .p2 { width: 64%; background: var(--dc-blue); }
+.dc .pyramid .p3 { width: 92%; background: var(--dc-navy); }
+
+/* Dark slides: invert text colours */
+.dc.dc--dark h1,
+.dc.dc--dark h2,
+.dc.dc--dark p,
+.dc.dc--dark li,
+.dc.dc--dark strong,
+.dc.dc--dark b {
+  color: var(--dc-white);
+}
+
+.dc.dc--dark ul > li::before {
+  background: var(--dc-sky);
+}
+
+.dc.dc--dark a {
+  color: var(--dc-sky);
+}
