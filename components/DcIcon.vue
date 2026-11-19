@@ -4,11 +4,14 @@ defineProps({
   name: { type: String, required: true },
   bg: { type: String, default: 'white' }, // white | sky | dusk | dawn
 })
+
+// Prefix with the deploy base so the path works under a subfolder (GitHub Pages).
+const base = import.meta.env.BASE_URL
 </script>
 
 <template>
   <span class="dc-icon" :class="`dc-icon--${bg}`">
-    <img :src="`/img/icons/${name}.png`" alt="">
+    <img :src="`${base}img/icons/${name}.png`" alt="">
   </span>
 </template>
 

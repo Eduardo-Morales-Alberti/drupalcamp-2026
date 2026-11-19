@@ -3,12 +3,15 @@ defineProps({
   white: { type: Boolean, default: false },
   width: { type: String, default: '220px' },
 })
+
+// Prefix with the deploy base so the path works under a subfolder (GitHub Pages).
+const base = import.meta.env.BASE_URL
 </script>
 
 <template>
   <img
     class="dc-logo"
-    :src="white ? '/img/logo-white.png' : '/img/logo.png'"
+    :src="`${base}img/${white ? 'logo-white' : 'logo'}.png`"
     :style="{ width }"
     alt="DrupalCamp Spain Madrid"
   >
